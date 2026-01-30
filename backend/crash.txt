@@ -1,0 +1,6 @@
+Error: Missing API key. Pass it to the constructor `new Resend("re_123")`
+    at new Resend (file:///C:/Users/tusha/OneDrive/Desktop/split%20payment/split-payment-system/backend/node_modules/resend/dist/index.mjs:902:25)
+    at file:///C:/Users/tusha/OneDrive/Desktop/split%20payment/split-payment-system/backend/services/emailService.js:4:16
+    at ModuleJob.run (node:internal/modules/esm/module_job:218:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
+    at async file:///C:/Users/tusha/OneDrive/Desktop/split%20payment/split-payment-system/backend/logger.js:3:3

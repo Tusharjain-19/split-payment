@@ -1,0 +1,650 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #1d4ed8; /* Razorpay Blue */
+  --primary-light: #eff6ff;
+  --primary-text: #ffffff;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text-main: #1e293b;
+  --text-dim: #64748b;
+  --border: #e2e8f0;
+  --success: #22c55e;
+  --error: #ef4444;
+  --radius: 8px;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+body {
+  background-color: #f1f5f9;
+  color: var(--text-main);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  width: 100%;
+}
+
+.App {
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  background: var(--bg);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-height: 800px) {
+  .App {
+    height: 844px; /* Default iPhone height */
+    border-radius: 24px;
+  }
+}
+
+/* Header - Razorpay Style (Image 0) */
+.checkout-header {
+  background: var(--primary);
+  color: white;
+  padding: 16px;
+  padding-bottom: 24px;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.back-arrow {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.brand-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.brand-info h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.brand-info p {
+  font-size: 11px;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Main Content */
+.checkout-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  padding-top: 0;
+}
+
+/* White overlapping card effect */
+.main-card {
+  background: white;
+  border-radius: 12px 12px 0 0;
+  margin-top: -12px;
+  padding-top: 20px;
+  min-height: 100%;
+}
+
+.section-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dim);
+  padding: 0 16px;
+  margin-bottom: 12px;
+}
+
+/* List Items */
+.payment-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  gap: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.list-item:hover {
+  background: #f8fafc;
+}
+
+.list-item.selected {
+  background: var(--primary-light);
+}
+
+.item-icon {
+  width: 44px;
+  height: 44px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.item-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.item-content {
+  flex: 1;
+}
+
+.item-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.item-subtitle {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.item-badge {
+  display: inline-block;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+.chevron {
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+/* Consolidated Simplified Split UI */
+.input-group-premium {
+  margin: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.email-input-field {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 15px;
+  color: var(--text-main);
+  outline: none;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.email-input-field:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.split-simple-container {
+  margin: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.split-simple-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s;
+}
+
+.split-simple-card.secondary {
+  background: #f8fafc;
+  border-style: dashed;
+}
+
+.split-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.split-tag {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.split-type-mini, .split-type-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+.split-amount-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.currency-symbol {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.split-amount-input {
+  border: none;
+  background: transparent;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary);
+  width: 100%;
+  outline: none;
+}
+
+.split-amount-input.disabled {
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+.balance-info-bubble {
+  margin: 24px 16px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: #166534;
+}
+
+/* Restore Missing Split Styles */
+.preset-grid {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 4px 16px 16px;
+  scrollbar-width: none;
+}
+
+.preset-grid::-webkit-scrollbar { display: none; }
+
+.preset-btn {
+  flex: 0 0 auto;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 90px;
+}
+
+.preset-btn:hover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+.preset-icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.preset-icons img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.preset-icons span {
+  font-size: 14px;
+  color: var(--text-dim);
+  font-weight: bold;
+}
+
+.preset-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.split-entry-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color 0.2s;
+}
+
+.split-entry-card:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.entry-header { flex: 1; }
+
+.method-select {
+  border: none;
+  background: transparent;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  outline: none;
+  display: block;
+}
+
+.amount-input-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.amount-input-group span {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.amount-input {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  width: 100px;
+  outline: none;
+}
+
+.split-status-bar {
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.split-status-bar.balanced {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.split-status-bar.unbalanced {
+  background: #fff7ed;
+  color: #d97706;
+}
+.checkout-footer {
+  background: white;
+  padding: 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 50;
+}
+
+.amount-display {
+  flex: 1;
+}
+
+.amount-label {
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.amount-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.continue-btn {
+  background: #4a90e2; /* App Icon Blue from Footer */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.continue-btn:active {
+  transform: scale(0.98);
+  background: #357abd;
+}
+
+.continue-btn:disabled {
+  background: var(--text-dim);
+  opacity: 0.5;
+}
+
+/* Fullscreen Overlays - Premium Revamp */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.overlay.success {
+  background: #16a34a; /* Vibrant Green */
+  color: white;
+}
+
+.success-content {
+  max-width: 320px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.success-hero {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+  animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.success-subtitle {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+/* Receipt Card Style */
+.receipt-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.receipt-row.small {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.receipt-row .bold {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.receipt-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 10px 0;
+}
+
+.footer-note {
+  margin-top: 20px;
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+/* Processing Box */
+/* Processing Box */
+.overlay.processing {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  background-image: radial-gradient(circle at center, #f1f5f9 0%, #ffffff 80%);
+}
+
+.processing-box {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  border: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.processing-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 20px 0 4px;
+}
+
+.processing-status {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f1f5f9;
+  border-top: 3px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* PIN Screen Logic (Image 1) */
+.pin-screen-container {
+  padding: 32px 16px;
+  text-align: center;
+}
+
+.pin-display {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 40px 0;
+}
+
+.pin-dot {
+  width: 16px;
+  height: 16px;
+  background: #e2e8f0;
+  border-radius: 50%;
+}
+
+.pin-dot.filled {
+  background: var(--text-main);
+}

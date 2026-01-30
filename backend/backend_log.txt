@@ -1,0 +1,37 @@
+﻿node : file:///C:/Users/tus
+ha/OneDrive/Desktop/split%2
+0payment/split-payment-syst
+em/backend/server.js:1
+At line:1 char:1
++ node server.js *>&1 | 
+Out-File -FilePath 
+backend_log.txt -Encoding 
+ut ...
++ ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (fil  
+  e:///C:/User...end/ser   
+ ver.js:1:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+∩┐╜∩┐╜i
+
+
+SyntaxError: Invalid or 
+unexpected token
+    at ModuleLoader.moduleS
+trategy (node:internal/modu
+les/esm/translators:167:18)
+    at callTranslator (node
+:internal/modules/esm/loade
+r:285:14)
+    at ModuleLoader.moduleP
+rovider (node:internal/modu
+les/esm/loader:291:30)
+    at async link (node:int
+ernal/modules/esm/module_jo
+b:76:21)
+
+Node.js v20.11.1
