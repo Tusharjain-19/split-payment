@@ -59,11 +59,3 @@ npm run dev
 3. Close the second popup (simulating failure).
 4. Watch the UI: The **Refund Engine** will trigger, and the Admin view will show the successful refund log.
 
-## 📊 Monitoring
-
-Click the ⚙️ icon in the header to enter the **Activity Monitor**. This view queries the `transaction_health_report` database view for real-time audit logs of every system transition.
-
----
-
-_Created as part of the 5-Day Split Payment Masterclass._
-```
