@@ -147,8 +147,8 @@ function App() {
       const getLabel = (type) => PAYMENT_METHODS.find(m => m.id === type)?.label || type;
 
       const tableData = [
-        [getLabel(split1.type), 'COMPLETE', `INR ${split1.amount}`],
-        [getLabel(split2.type), 'COMPLETE', `INR ${split2.amount}`]
+        ['Split 1', 'COMPLETE', `INR ${split1.amount}`],
+        ['Split 2', 'COMPLETE', `INR ${split2.amount}`]
       ];
       
       autoTable(doc, {
@@ -340,11 +340,11 @@ function App() {
 
             <div className="receipt-breakdown">
               <div className="rb-row">
-                <span className="rb-label">Split 1 ({PAYMENT_METHODS.find(m => m.id === split1.type).label})</span>
+                <span className="rb-label">Split 1</span>
                 <span className="rb-value">₹{split1.amount}</span>
               </div>
               <div className="rb-row">
-                <span className="rb-label">Split 2 ({PAYMENT_METHODS.find(m => m.id === split2.type).label})</span>
+                <span className="rb-label">Split 2</span>
                 <span className="rb-value">₹{split2.amount}</span>
               </div>
             </div>

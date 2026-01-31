@@ -12,17 +12,23 @@ class EmailService {
   }
   async sendPaymentSuccess(email, data) {
     try {
-      console.log(`✉️ Attempting to send success email to: ${email.replace(/(.{2})(.*)(@.*)/, '$1***$3')}`);
+      if (!email) {
+        console.warn('⚠️ Skipping email: No recipient provided');
+        return;
+      }
+      const maskedEmail = email.length > 3 ? `${email.substring(0, 2)}***@${email.split('@')[1] || '...'}` : '***';
+      console.log(`✉️ Sending SUCCESS email to: ${maskedEmail}`);
+      
       const response = await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
         to: email,
         subject: '✅ Payment Success - Split Payment System',
         html: `<h1>Payment Confirmed</h1><p>Your split payment of <b>INR ${data.totalAmount}</b> was successful.</p><p>Transaction ID: ${data.masterTxnId}</p>`
       });
-      console.log('✅ Resend Response:', response);
+      console.log('✅ Resend ID:', response.data?.id || 'Sent');
       await this.logEmail(data.masterTxnId, 'SUCCESS', email);
     } catch (e) { 
-      console.error('❌ Resend API Error:', e.message || e); 
+      console.error('❌ Email Failed:', e.message); 
     }
   }
   async sendPaymentFailed(email, data) {
